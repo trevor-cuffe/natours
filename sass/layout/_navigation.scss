@@ -1,0 +1,160 @@
+.navigation {
+	&__checkbox {
+		display: none;
+	}
+
+	&__checkbox:checked ~ &__background {
+		transform: scale(80);
+	}
+
+	&__checkbox:checked ~ &__nav {
+		opacity: 1;
+		width: 100%;
+	}
+
+	&__button {
+		background-color: $color-white;
+		height: 7rem;
+		width: 7rem;
+		border-radius: 50%;
+		position: fixed;
+		top: 6rem;
+		right: 6rem;
+		z-index: 1010;
+		cursor: pointer;
+		box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+
+		@include respond(tab-port) {
+			top: 4rem;
+			right: 4rem;
+		}
+	}
+
+	&__icon {
+		&,
+		&::before,
+		&::after {
+			display: block;
+			height: 2px;
+			width: 3rem;
+			background-color: $color-grey-dark-2;
+		}
+
+		position: relative;
+		@include center-x-y;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			transform-origin: center;
+		}
+
+		&::before {
+			bottom: 0.5em;
+			transition: all 0.2s;
+		}
+
+		&::after {
+			top: 0.5em;
+			transition: all 0.2s;
+		}
+	}
+
+	&__checkbox:not(:checked) ~ &__button:hover &__icon::before {
+		bottom: 0.8em;
+	}
+
+	&__checkbox:not(:checked) ~ &__button:hover &__icon::after {
+		top: 0.8em;
+	}
+
+	&__checkbox:checked ~ &__button &__icon {
+		background-color: transparent;
+
+		&::before {
+			bottom: 0px;
+			transform: translateY(0) rotateZ(135deg);
+		}
+		&::after {
+			top: 0px;
+			transform: translateY(0) rotateZ(-135deg);
+		}
+	}
+
+	&__background {
+		height: 6rem;
+		width: 6rem;
+		border-radius: 50%;
+		display: inline-block;
+		position: fixed;
+		top: 6.5rem;
+		right: 6.5rem;
+		background-image: radial-gradient($color-primary-light, $color-primary-dark);
+		z-index: 1000;
+		transition: transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+
+		@include respond(tab-port) {
+			top: 4.5rem;
+			right: 4.5rem;
+		}
+	}
+
+	&__nav {
+		height: 100vh;
+		width: 0;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 1005;
+		opacity: 0;
+		transition: all 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+	}
+
+	&__list {
+		@include center-x-y;
+		list-style: none;
+		color: $color-white;
+		text-align: center;
+		width: 100%;
+	}
+
+	&__item {
+		margin: 1.5rem;
+	}
+
+	&__link {
+		&:link,
+		&:visited {
+			display: inline-block;
+			text-decoration: none;
+			color: inherit;
+			font-size: 3rem;
+			font-weight: 300;
+			text-transform: uppercase;
+			background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+			padding: 1rem 2rem;
+			background-size: 230%;
+
+			transition: all 0.3s;
+
+			span {
+				margin-right: 1.5rem;
+				display: inline-block;
+			}
+		}
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-position: 100%;
+			color: $color-primary;
+			transform: translateX(1rem);
+		}
+
+		&:focus {
+			outline: none;
+			border: none;
+		}
+	}
+}

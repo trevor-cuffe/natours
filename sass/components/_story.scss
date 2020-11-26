@@ -23,6 +23,7 @@
 		shape-outside: circle(50% at 50% 50%);
 		-webkit-clip-path: circle(48% at 50% 50%);
 		clip-path: circle(48% at 50% 50%);
+		overflow: hidden;
 
 		margin: 0 3rem 0 0.5rem;
 		position: relative;

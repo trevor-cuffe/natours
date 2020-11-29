@@ -1110,9 +1110,20 @@ body {
 .navigation__checkbox:checked ~ .navigation__background {
   transform: scale(80);
 }
+@media (min-width: 112.5em) {
+  .navigation__checkbox:checked ~ .navigation__background {
+    transform: scale(100);
+  }
+}
+@media (max-width: 37.5em) {
+  .navigation__checkbox:checked ~ .navigation__background {
+    transform: scale(65);
+  }
+}
 .navigation__checkbox:checked ~ .navigation__nav {
   opacity: 1;
   width: 100%;
+  visibility: visible;
 }
 .navigation__button {
   background-color: #fff;
@@ -1201,6 +1212,8 @@ body {
   left: 0;
   z-index: 1005;
   opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
   transition: all 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 .navigation__list {

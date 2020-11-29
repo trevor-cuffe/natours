@@ -15,6 +15,7 @@
 	background-size: cover;
 	background-attachment: fixed;
 
+	-webkit-clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
 	clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
 	// transform: skewY(-7deg);
 	margin-top: -35rem;
@@ -34,11 +35,13 @@
 
 	@include respond(tab-port) {
 		padding: 23rem 0;
+		-webkit-clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
 		clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
 	}
 
 	@include respond(phone) {
 		padding: 18rem 0;
+		-webkit-clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
 		clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
 	}
 }

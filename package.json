@@ -4,11 +4,15 @@
   "description": "Landing page for natours",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "sass sass/main.scss css/style.css --watch"
+    "watch:sass": "sass sass/main.scss css/style.css --watch",
+    "compile:sass": "sass sass/main.scss css/style.comp.css"
   },
   "author": "Trevor",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^10.0.4",
+    "concat": "^1.0.3",
+    "postcss-cli": "^8.3.0",
     "sass": "^1.29.0"
   },
   "dependencies": {}

@@ -18,8 +18,12 @@
 	}
 
 	&__logo-img {
-		width: 20rem;
-		height: auto;
+		&,
+		& source,
+		& img {
+			width: 15rem;
+			height: auto;
+		}
 	}
 
 	&__navigation {

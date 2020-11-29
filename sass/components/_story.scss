@@ -21,18 +21,23 @@
 		float: left;
 		-webkit-shape-outside: circle(50% at 50% 50%);
 		shape-outside: circle(50% at 50% 50%);
-		-webkit-clip-path: circle(48% at 50% 50%);
-		clip-path: circle(48% at 50% 50%);
 		overflow: hidden;
-
 		margin: 0 3rem 0 0.5rem;
 		position: relative;
+		border-radius: 50%;
+
+		@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+			-webkit-clip-path: circle(48% at 50% 50%);
+			clip-path: circle(48% at 50% 50%);
+			border-radius: none;
+		}
 	}
 
 	&__img {
 		height: 100%;
 		transition: 0.5s;
 		transform: translateX(-4rem) scale(1.3);
+		will-change: filter transform;
 	}
 
 	&__caption {
@@ -54,7 +59,6 @@
 	}
 
 	&:hover &__img {
-		will-change: filter transform;
 		filter: blur(6px) brightness(0.7);
 		transform: translateX(-4rem) scale(0.8);
 	}

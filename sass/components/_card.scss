@@ -71,9 +71,9 @@
 				url("../img/nat-7-small.jpg");
 		}
 
-		@media (min-resolution: 192dpi) and (min-width: 600px),
-			(-webkit-min-device-pixel-ratio: 2) and (min-width: 600px),
-			(min-width: 2000px) {
+		@media only screen and (min-resolution: 192dpi) and (min-width: 600px),
+			only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 600px),
+			only screen and (min-width: 2000px) {
 			&--1 {
 				background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
 					url("../img/nat-5.jpg");
@@ -180,7 +180,7 @@
 
 	// REDESIGN CARD FOR SMALLER SCREEN
 	// NO BACKSIDE - DISPLAY CTA ON FRONT
-	@include respond(tab-port) {
+	@media only screen and (max-width: 56.25em), only screen and (hover: none) {
 		height: auto;
 		border-radius: $border-radius-small;
 		background-color: $color-white;
